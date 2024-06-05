@@ -1,0 +1,27 @@
+{
+	"manifest_version": 3,
+	"name": "Reservation Handler",
+	"version": "1.0.11",
+
+	"description": "一键获取订单信息，令您的预订处理自动化更加轻松。",
+	"icons": {
+		"48": "icons/RH-48.png"
+	},
+
+	"permissions": ["tabs", "activeTab", "clipboardRead", "clipboardWrite", "scripting"],
+
+	"action": {
+		"default_icon": {
+			"32": "icons/RH-32.png"
+		},
+		"default_title": "ReservationHandler",
+		"default_popup": "popup/ResvHandler.html"
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content_scripts/content.js", "content_scripts/resvParsers.js", "content_scripts/fedexMail.js"]
+		}
+	]
+}
